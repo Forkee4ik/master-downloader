@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: var(--surface);
+  --color-surface-dim: var(--surface-dim);
+  --color-surface-container: var(--surface-container);
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-outline: var(--outline);
+}
+
+@layer base {
+  :root {
+    --surface: #f4f2f6;
+    --surface-container: #ffffff;
+    --surface-dim: #ded8e1;
+    --primary: #65558f;
+    --on-primary: #ffffff;
+    --primary-container: #eaddff;
+    --on-primary-container: #21005d;
+    --secondary-container: #e8def8;
+    --on-secondary-container: #1d192b;
+    --outline: #79747e;
+  }
+  
+  :root.dark {
+    --surface: #141218;
+    --surface-container: #1d1b20;
+    --surface-dim: #2b2930;
+    --primary: #d0bcff;
+    --on-primary: #381e72;
+    --primary-container: #4f378b;
+    --on-primary-container: #eaddff;
+    --secondary-container: #4a4458;
+    --on-secondary-container: #e8def8;
+    --outline: #938f99;
+  }
+}
+
+body {
+  @apply bg-surface text-on-secondary-container antialiased;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+#root {
+  @apply h-screen w-screen overflow-hidden flex flex-col;
+}
+
+/* Material You style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-outline/30 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-outline/50;
+}
+
+@utility app-region-drag {
+  -webkit-app-region: drag;
+}
+
+@utility app-region-no-drag {
+  -webkit-app-region: no-drag;
+}
